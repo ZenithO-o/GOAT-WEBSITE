@@ -8,6 +8,11 @@ body {
   text-align: center;
 }
 
+#goat-nom {
+  padding: 0px;
+  background-color: rgb(161, 111, 71);
+}
+
 .hide-mistakes {
   left: 0px;
   right: 0px;
@@ -43,6 +48,10 @@ body {
 .🤣 {
   margin-top: 0px;
   font-size: 90px;
+}
+
+#facts {
+  font-size: 150%;
 }
 
 h6 {

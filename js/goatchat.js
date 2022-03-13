@@ -1,6 +1,6 @@
 $().ready( init );
 
-var user_path = '/assets/goatter_users/'
+var user_path = 'http://dance.goat.dance/assets/goatter_users/'
 var last_message;
 var old_message;
 
@@ -99,7 +99,7 @@ function add_to_chatbox( messages ) {
     var random_val = 9176;
     messages.forEach( function( e ) {
         random_val = getRandomIntInclusive(9176, 9193)
-        $( '#chat_messages' ).append( '<div class="bubble"><img src="' + user_path + 'IMG_' + random_val + '.PNG' + '"></img><p>' + e.message + '</p></div>' );
+        $( '#chat_messages' ).append( '<div class="bubble"><img src="' + user_path + 'IMG_' + random_val + '.png' + '"></img><p>' + e.message + '</p></div>' );
     });
     $("#chatbox-container").scrollTop($("#chatbox-container")[0].scrollHeight);
     $("#chatbox").scrollTop($("#chatbox")[0].scrollHeight);   
