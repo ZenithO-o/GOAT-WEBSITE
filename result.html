@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logo.png">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="background-div" style="background-color: rgba(255, 255, 255, 0.9);">
+
+        <!-- <button>yeah</button> -->
+        <a href="index.html" class="btn orange darken-2">goat tower</a>
+        <h2 id="result"> wot</h2>
+        <p id="info"> wot</p>
+        <img id="goatpic" width="50%"></img>
+
+    </div>
+    
+    <script>
+        
+        function getSheepInfo(sheep) {
+            if (sheep === 'supergoat') 
+                return {
+                    "name" : "WHOAAHHHH RALSEI HITTIN DA BLUNT!!!",
+                    "desc" : "little goat man hittin da blunt, look at him go!!! look at the little man!!! he just hittin it!!!",
+                    "isrc" : "assets/goatpics/supergoat.png",
+                }
+            
+            if (sheep === 'boer') 
+                return {
+                    "name" : "You're a Boer Goat!",
+                    "desc" : "You are big boy! Big big boy :) you are also very strong and can withstand hot temperatures (perfect for georgia summers).",
+                    "isrc" : "assets/goatpics/boer.jpg",
+                }
+
+            if (sheep === 'kiko')
+                return {
+                    "name" : "You're a Kiko Goat!",
+                    "desc" : "You have luscious fur and big big horns. You are very strong and curious, and you need space to roam and explore.",
+                    "isrc" : "assets/goatpics/kiko.jpg",
+                }
+
+            if (sheep === 'pygmy')
+                return {
+                    "name" : "You're a Pygmy Goat!",
+                    "desc" : "You are so small. Little baby. Little baby man. Little baby baby. You bond well with humans and you are very friendly and joyful. Go enjoy life, little baby man :)",
+                    "isrc" : "assets/goatpics/pygmy.jpg",
+                }
+            
+            if (sheep === 'angora')
+                return {
+                    "name" : "You're an Angora Goat!",
+                    "desc" : "You are super fluffy and you have curly fur. Your fur is very valuable, and you produce 25% of your body weight in fur. Wow thats a lot of fur! ",
+                    "isrc" : "assets/goatpics/angora.jpg",
+                }
+
+            if (sheep === 'alpine')
+                return {
+                    "name" : "You're an Alpine Goat!",
+                    "desc" : "You are strong and loyal and do not like strangers (but thats okay because stranger danger)",
+                    "isrc" : "assets/goatpics/alpine.webp",
+                }
+            
+            if (sheep === 'toggenburg')
+                return {
+                    "name" : "You're a Toggenburg Goat!",
+                    "desc" : "You have long ears and loooong beard. Very majestic and wise. You are probably good at math",
+                    "isrc" : "assets/goatpics/toggenburg.jpg",
+                }
+
+            if (sheep === 'nubian')
+                return {
+                    "name" : "You're a Nubian Goat!",
+                    "desc" : "You are very enthusiastic and friendly. You have looooong ears. Like dog (but goet)",
+                    "isrc" : "assets/goatpics/",
+                }
+
+            if (sheep === 'normal') 
+                return {
+                    "name" : "gote",
+                    "desc" : "You are just goat (and thats okay)",
+                    "isrc" : "assets/GOATdancefast.gif",
+                }
+
+            return {
+                "name" : "Are you really a goat? or an impostor",
+                "desc" : "among us sussy baka emergency meeting button button emergency suspicious red sus impostor sus 🥵",
+                "isrc" : "assets/SUStainability.png"
+            }
+
+        }
+
+        function setParams() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const sheep = getSheepInfo(urlParams.get('result'))
+            document.getElementById('result').innerHTML = sheep.name
+            document.getElementById('info').innerHTML = sheep.desc
+            document.getElementById('goatpic').src = sheep.isrc
+        }
+
+        setParams();
+
+    </script>
+    <script src="js/colors.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/materialize.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="assets/logo.png">
+    <title>Document</title>
+</head>
+<body>
+    
+    <div class="background-div" style="background-color: rgba(255, 255, 255, 0.9); width: 90%;">
+
+        <a href="index.html" class="btn orange darken-2">goat tower</a>
+
+        <div>
+            <h2>QUIZ</h2>
+            <h3 id="qnumber">Question ur mom</h3>
+            <h5 id="qtext">The question is supposed to be here. If you don't see it you fucked up</h5>
+        </div>
+
+        <div style="display: inline-block;">
+            <div style="margin: 20px; max-width: 250px;">
+                <div class="row" style="margin-bottom: 8px;">
+                    <button onclick="next_question(2.0)" style="width:100%">Strongly Agree</button>
+                </div>
+                <div class="row" style="margin-bottom: 8px;">
+                    <button onclick="next_question(1.0)" style="width:100%">Agree</button>
+                </div>
+                <div class="row" style="margin-bottom: 8px;">
+                    <button onclick="next_question(0.0)" style="width:100%">Neither Agree nor Disagree</button>
+                </div>
+                <div class="row" style="margin-bottom: 8px;">
+                    <button onclick="next_question(-1.0)" style="width:100%">Disagree</button>
+                </div>
+                <div class="row" style="margin-bottom: 8px;">
+                    <button onclick="next_question(-2.0)" style="width:100%">Strongly Disagree</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="js/quizvalues.js"></script>
+    <script>
+        var qn = -1
+        var userValues = {
+            "short" : 0,
+            "fuzzy" : 0,
+            "angry" : 0,
+            "honry" : 0,
+            "supergoat" : 0,
+        }
+
+        function loadQuestion(index) {
+            let question = questions[index]
+            document.getElementById("qnumber").innerHTML = `Question ${index + 1} of ${questions.length}`
+            document.getElementById("qtext").innerHTML = question.question
+        }
+
+        function results() {
+            let result = getQuizResult(userValues)
+            window.location.href = `result.html?result=${result}`
+        }
+
+        function next_question(multiplier) {
+            if (qn > -1 && qn < questions.length) {
+                userValues.short += multiplier * questions[qn].effect.short
+                userValues.fuzzy += multiplier * questions[qn].effect.fuzzy
+                userValues.angry += multiplier * questions[qn].effect.angry
+                userValues.honry += multiplier * questions[qn].effect.honry
+                userValues.supergoat += multiplier * questions[qn].effect.supergoat
+            }
+            if (qn == questions.length - 1) {
+                results();
+                return;
+            }
+            qn++;
+            loadQuestion(qn)
+        }
+
+        next_question();
+
+    </script>
+    <script src="js/colors.js"></script>
+
+</body>
+</html>
