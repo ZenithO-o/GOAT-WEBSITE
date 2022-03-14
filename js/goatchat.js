@@ -35,7 +35,7 @@ function setup_chat() {
 function loop() {
     setInterval(() => {
         check_for_new_message();
-    }, 50);
+    }, 250);
 }
 
 function check_for_new_message() {
